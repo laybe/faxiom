@@ -1,0 +1,80 @@
+{
+    "id": 123,
+    "type": "single",
+    "text": "abc",
+    "premisesArguments": [
+        {
+            "id": 456,
+            "argumentType": "implication",
+            "premise": {
+                "id": 124,
+                "type": "connection",
+                "connectionType": "conjunction",
+                "connectedPropositions": [
+                    {
+                        "id": 126,
+                        "type": "single",
+                        "text": "def"
+                    },
+                    {
+                        "id": 127,
+                        "type": "single",
+                        "text": "ghi"
+                    }
+                ]
+            },
+            "conclusion": {
+                "id": 123,
+                "type": "single"
+            }
+        },
+        {
+            "id": 457,
+            "argumentType": "abjunction",
+            "premise": {
+                "id": 125,
+                "type": "single",
+                "text": "jkl"
+            },
+            "conclusion": {
+                "id": 123,
+                "type": "single"
+            }
+        }
+    ],
+    "conclusionsArguments": [],
+    "partOfConnections": [
+        {
+            "id": 128,
+            "type": "connection",
+            "connectionType": "disjunction",
+            "connectedPropositions": [
+                {
+                    "id": 123,
+                    "type": "single",
+                    "text": "abc"
+                },
+                {
+                    "id": 129,
+                    "type": "single",
+                    "text": "mno"
+                }
+            ],
+            "conclusionsArguments": [
+                {
+                    "id": 458,
+                    "argumentType": "implication",
+                    "premise": {
+                        "id": 128,
+                        "type": "connection"
+                    },
+                    "conclusion": {
+                        "id": 130,
+                        "type": "single",
+                        "text": "pqr"
+                    }
+                }
+            ]
+        }
+    ]
+}
