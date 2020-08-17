@@ -1,48 +1,75 @@
 <script lang="ts">
   import Proposition from './Proposition.svelte';
+  import Hideable from './Hideable.svelte';
   
   export let proposition1: string;
   export let proposition2: string;
+  export let proposition3: string;
+  
 </script>
 
 <main>
-  <div class="grid-container">
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item">
+  <Hideable let:hide buttonOnTheRight={true}>
+    <div class:hide class="premisesArguments">
       <Proposition text={proposition1}/>
     </div>
-    <div class="grid-item">
-      <Proposition text={proposition2}/>
-    </div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
+  </Hideable>
+  <div class="mainProposition">
+    <Proposition text={proposition2}/>
   </div>
-  
+  <Hideable let:hide>
+    <div class:hide class="conclusionsArguments">
+      <Proposition text={proposition3}/>
+    </div>
+  </Hideable>
 </main>
 
 <style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
+  main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /*align-items: stretch;
+    align-content: stretch;*/
+  }
 
-    grid-gap: 50px;
-    padding: 10px;
-    /* background-color: #2196F3; */
+  main > div {
+    flex-grow: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    main {
+      flex-direction: row;
+    }
   }
   
-  .grid-item {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    
+  }
+  
+  /*.grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  }*/
 </style>

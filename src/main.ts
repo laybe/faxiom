@@ -5,6 +5,7 @@ const app = new App({
 	props: {
 		proposition1: 'Il n\'est pas possible de manger des végétaux sans exploiter ou tuer un animal.',
 		proposition2: 'Le véganisme est impossible',
+		proposition3: 'blabla conclusion'
 	}
 });
 
