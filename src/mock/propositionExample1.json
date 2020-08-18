@@ -1,7 +1,7 @@
 {
     "id": "123",
     "type": "single",
-    "text": "abc",
+    "text": "La chimie, qui nous fournit aujourd’hui bon nombre de produits « incorporant » du pétrole ou du gaz (par exemple le plastique, donc, mais encore les engrais ou…les ordinateurs), ne peut pas être remplacé par une énergie renouvelable.",
     "premisesArguments": [
         {
             "id": "456",
@@ -30,7 +30,7 @@
             "premise": {
                 "id": "125",
                 "type": "single",
-                "text": "jkl"
+                "text": "Il est possible de faire toute la chimie organique avec du bois."
             }
         }
     ],
