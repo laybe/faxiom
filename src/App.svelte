@@ -12,13 +12,19 @@
   let proposition: SingleProposition;
   let premisesArgumentsList: Argument[];
   let conclusionsArgumentsList: Argument[];
+
+  $: {
+    if (propositionData) {
+      proposition = { id: propositionData.id, type: propositionData.type, text: propositionData.text };
+      premisesArgumentsList = propositionData.premisesArguments;
+      conclusionsArgumentsList = undefined;
+    }
+  }
   
   onMount(/* async */ () => {
     propositionData = propositionJson;
     // const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
     // photos = await res.json();
-    proposition =  { id: propositionData.id, type: propositionData.type, text: propositionData.text };
-    premisesArgumentsList = propositionData.premisesArguments;
   });
 </script>
 
