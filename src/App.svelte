@@ -49,8 +49,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    /*align-items: stretch;
-    align-content: stretch;*/
   }
   
   main > div {
@@ -60,7 +58,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .hide {
     display: none;
   }

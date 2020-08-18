@@ -14,7 +14,11 @@
 
 <style>
   .text {
-    border: 1px solid black;
+    border: 1px solid grey;
+    border-radius: 15px;
     width: 200px;
+    padding: 15px;
+    text-align: justify;
+    text-justify: inter-word;
   }
 </style>

@@ -5,11 +5,10 @@
 
   export let showConclusions: boolean;
   export let argument: Argument;
-  let { id, type, premise, conclusion }: Argument = argument;
+  let { type, premise, conclusion }: Argument = argument;
 </script>
 
 <div class='root'>
-  <p>{id}</p>
   {#if showConclusions}
     {#if type === ArgumentType.IMPLICATION}
       <div>----D</div>
@@ -29,6 +28,8 @@
 
 <style>
   div.root {
+    flex-grow: 1;
+
     display: flex;
     flex-direction: row;
   }
