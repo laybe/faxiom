@@ -7,7 +7,7 @@
 </script>
 
 <div>
-  {#each argumentsList as argument}
+  {#each argumentsList as argument (argument.id)}
     <ArgumentComponent {showConclusions} {argument}/>
   {/each}
 </div>
