@@ -17,11 +17,15 @@
 <svelte:window on:resize={onResize}/>
 
 {#if buttonOnTheRight}
-  <slot hide={hide}></slot>
+  {#if !hide}
+    <slot/>
+  {/if}
   <div class="button" on:click={onClick}/>
 {:else}
   <div class="button" on:click={onClick}/>
-  <slot hide={hide}></slot>
+  {#if !hide}
+    <slot/>
+  {/if}
 {/if}
 
 <style lang="scss">

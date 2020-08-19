@@ -32,16 +32,16 @@
 <Layout/>
 
 <main>
-  <Hideable let:hide buttonOnTheRight={true}>
-    <div class:hide>
+  <Hideable buttonOnTheRight={true}>
+    <div>
       <ArgumentsList argumentsList={premisesArgumentsList}></ArgumentsList>
     </div>
   </Hideable>
   <div class="mainProposition">
     <PropositionComponent {proposition}/>
   </div>
-  <Hideable let:hide>
-    <div class:hide>
+  <Hideable>
+    <div>
       <ArgumentsList argumentsList={conclusionsArgumentsList} showConclusions></ArgumentsList>
     </div>
   </Hideable>
@@ -60,10 +60,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .hide {
-    display: none;
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
