@@ -4,13 +4,13 @@
   export let type: ArgumentType;
 </script>
 
-<div class={type + ' root'}>
+<div class={type + ' container'}>
   <div class='body'></div>
   <div class='head'></div>
 </div>
 
 <style lang="scss">
-  .root {
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,7 @@
   }
   
   @media only screen and (min-width: 600px) {
-    .root {
+    .container {
       flex-direction: row;
     }
     .body {
