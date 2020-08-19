@@ -18,11 +18,13 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
   }
 
   @media only screen and (min-width: 600px) {
     div {
       flex-direction: column;
+      overflow-y: scroll;
     }
   }
 </style>
