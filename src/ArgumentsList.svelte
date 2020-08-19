@@ -17,6 +17,12 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  @media only screen and (min-width: 600px) {
+    div {
+      flex-direction: column;
+    }
   }
 </style>

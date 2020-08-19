@@ -24,8 +24,14 @@
     flex-grow: 1;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .root {
+      flex-direction: row;
+    }
   }
 </style>

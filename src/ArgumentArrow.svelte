@@ -12,13 +12,13 @@
 <style lang="scss">
   .root {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
   
   .body {
-    height: 20px;
-    width: 100px;
+    height: 100px;
+    width: 20px;
   }
   
   .implication {
@@ -30,7 +30,7 @@
       height: 0px;
       width: 0px;
       border: 20px solid transparent;
-      border-left: 20px solid lightgreen;
+      border-top: 20px solid lightgreen;
     }
   }
   
@@ -40,9 +40,32 @@
     }
     
     > .head {
-      height: 40px;
-      width: 10px;
+      height: 10px;
+      width: 40px;
     }
   }
   
+  @media only screen and (min-width: 600px) {
+    .root {
+      flex-direction: row;
+    }
+    .body {
+      height: 20px;
+      width: 100px;
+    }
+    .implication {
+      > .head {
+        border: 20px solid transparent;
+        border-left: 20px solid lightgreen;
+      }
+    }
+    
+    .abjunction {
+      > .head {
+        height: 40px;
+        width: 10px;
+      }
+    }
+  }
+
 </style>
