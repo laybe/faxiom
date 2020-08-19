@@ -7,7 +7,8 @@
   import type { SingleProposition } from './model/proposition/SingleProposition';
   import ArgumentsList from './ArgumentsList.svelte';
   import type { Argument } from './model/argument/Argument';
-  
+  import Layout from './style/_layout.svelte';
+
   let propositionData: any;
   let proposition: SingleProposition;
   let premisesArgumentsList: Argument[];
@@ -28,6 +29,8 @@
   });
 </script>
 
+<Layout/>
+
 <main>
   <Hideable let:hide buttonOnTheRight={true}>
     <div class:hide>
@@ -44,7 +47,7 @@
   </Hideable>
 </main>
 
-<style>
+<style lang="scss">
   main {
     height: 100%;
     display: flex;

@@ -12,7 +12,7 @@
 
 <div class="text">{text}</div>
 
-<style>
+<style lang="scss">
   .text {
     border: 1px solid grey;
     border-radius: 15px;

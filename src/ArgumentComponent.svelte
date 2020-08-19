@@ -19,7 +19,7 @@
   {/if}
 </div>
 
-<style>
+<style  lang="scss">
   .root {
     flex-grow: 1;
 

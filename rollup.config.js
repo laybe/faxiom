@@ -47,7 +47,14 @@ export default {
 			css: css => {
 				css.write('public/build/bundle.css');
 			},
-			preprocess: sveltePreprocess(),
+			preprocess: sveltePreprocess({
+        scss: {
+          includePaths: ['src'],
+        },
+        postcss: {
+          plugins: [require('autoprefixer')],
+        }
+      }),
 		}),
 
 		// If you have external dependencies installed from
