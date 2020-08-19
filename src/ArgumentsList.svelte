@@ -19,6 +19,12 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+
+    padding: 10px 0 10px 0;
+  }
+
+  div > :global(*) {
+    margin: 10px;
   }
 
   @media only screen and (min-width: 600px) {

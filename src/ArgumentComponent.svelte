@@ -9,29 +9,38 @@
   let { type, premise, conclusion }: Argument = argument;
 </script>
 
-<div class='root'>
+<div class='container'>
   {#if showConclusions}
-    <ArgumentArrow {type}/>
-    <PropositionComponent proposition={conclusion}></PropositionComponent>
+    <div class='item arrow'><ArgumentArrow {type}/></div>
+    <div class='item proposition'><PropositionComponent proposition={conclusion}></PropositionComponent></div>
   {:else}
-    <PropositionComponent proposition={premise}></PropositionComponent>
-    <ArgumentArrow {type}/>
+    <div class='item proposition'><PropositionComponent proposition={premise}></PropositionComponent></div>
+    <div class='item arrow'><ArgumentArrow {type}/></div>
   {/if}
 </div>
 
 <style  lang="scss">
-  .root {
+  .container {
     flex-grow: 1;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 50%;
     align-items: center;
-    justify-content: space-evenly;
+  }
+
+  .proposition {
+    justify-self: center;
   }
 
   @media only screen and (min-width: 600px) {
-    .root {
-      flex-direction: row;
+    .container {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto;
+    }
+    .arrow {
+      padding: 0;
+      padding-left: 20%;
     }
   }
 </style>
