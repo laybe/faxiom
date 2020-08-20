@@ -1,17 +1,13 @@
 <script lang="ts">
-  import PropositionComponent from './PropositionComponent.svelte';
-  import Hideable from './Hideable.svelte';
-  import { PropositionType } from './model/proposition/PropositionType';
   import { onMount } from 'svelte';
   import * as propositionJson from './mock/propositionExample1.json';
+  import type { PropositionUnion } from './model/proposition/PropositionUnion';
   import type { SingleProposition } from './model/proposition/SingleProposition';
-  import ArgumentsList from './ArgumentsList.svelte';
-  import type { Argument } from './model/argument/Argument';
+  import PropositionWithArguments from './PropositionWithArguments.svelte';
   import Layout from './style/_layout.svelte';
-  import type { ConnectionType } from './model/proposition/ConnectionType';
 
   let propositionData: any;
-  let proposition: SingleProposition;
+  let proposition: PropositionUnion;
 
   $: {
     if (propositionData) {
@@ -26,81 +22,13 @@
   });
 </script>
 
-<main>
-  <Layout/>
-  {#if proposition}
-    <div class="container">
-      <Hideable buttonOnTheRight={true}>
-        <div>
-          <ArgumentsList argumentsList={proposition.premisesArguments}></ArgumentsList>
-        </div>
-      </Hideable>
-      <div class="mainProposition">
-        <PropositionComponent {proposition}/>
-      </div>
-      <Hideable>
-        <div>
-          <ArgumentsList argumentsList={proposition.conclusionsArguments} showConclusions></ArgumentsList>
-        </div>
-      </Hideable>
-    </div>
+<Layout/>
 
-    {#if proposition.partOfConnections}
-      <div class="connectedPropositions">
-        {#each proposition.partOfConnections as connection (connection.id)}
-          <div></div>
-          <div>
-              <PropositionComponent proposition={connection}/>
-          </div>
-          <div>
-            <ArgumentsList argumentsList={connection.conclusionsArguments} showConclusions></ArgumentsList>
-          </div>
-        {/each}
-      </div>
-    {/if}
+<main>
+  <PropositionWithArguments {proposition}/>
+  {#if proposition && proposition.partOfConnections}
+    {#each proposition.partOfConnections as connection (connection.id)}
+      <PropositionWithArguments proposition={connection}/>
+    {/each}
   {/if}
 </main>
-
-<style lang="scss">
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .container > div {
-    flex-grow: 1;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-    .container {
-      flex-direction: row;
-    }
-  }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    
-  }
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    
-  }
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-    
-  }
-  
-  /*.grid-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }*/
-</style>
