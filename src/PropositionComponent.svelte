@@ -30,5 +30,7 @@
 {#if singleProposition}
   <SinglePropositionComponent proposition={singleProposition}/>
 {:else if connectedProposition}
-  <ConnectedPropositionComponent proposition={connectedProposition}/>
+  <ConnectedPropositionComponent proposition={connectedProposition} let:proposition>
+    <svelte:self {proposition}/>
+  </ConnectedPropositionComponent>
 {/if}

@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { ConnectedProposition } from "./model/proposition/ConnectedProposition";
   import type { PropositionUnion } from "./model/proposition/PropositionUnion";
-  import PropositionComponent from "./PropositionComponent.svelte";
   import Connector from "./Connector.svelte";
   
   export let proposition: ConnectedProposition;
@@ -14,7 +13,7 @@
     {#if i !== 0}
       <Connector type={proposition.connectionType}/>
     {/if}
-    <PropositionComponent proposition={propositionItem}/>
+    <slot proposition={propositionItem}/>
   {/each}
 </div>
 
