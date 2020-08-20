@@ -8,17 +8,14 @@
   import ArgumentsList from './ArgumentsList.svelte';
   import type { Argument } from './model/argument/Argument';
   import Layout from './style/_layout.svelte';
+  import type { ConnectionType } from './model/proposition/ConnectionType';
 
   let propositionData: any;
   let proposition: SingleProposition;
-  let premisesArgumentsList: Argument[];
-  let conclusionsArgumentsList: Argument[];
 
   $: {
     if (propositionData) {
-      proposition = { id: propositionData.id, type: propositionData.type, text: propositionData.text };
-      premisesArgumentsList = propositionData.premisesArguments;
-      conclusionsArgumentsList = undefined;
+      proposition = propositionData as SingleProposition;
     }
   }
   
@@ -29,32 +26,49 @@
   });
 </script>
 
-<Layout/>
-
 <main>
-  <Hideable buttonOnTheRight={true}>
-    <div>
-      <ArgumentsList argumentsList={premisesArgumentsList}></ArgumentsList>
+  <Layout/>
+  {#if proposition}
+    <div class="container">
+      <Hideable buttonOnTheRight={true}>
+        <div>
+          <ArgumentsList argumentsList={proposition.premisesArguments}></ArgumentsList>
+        </div>
+      </Hideable>
+      <div class="mainProposition">
+        <PropositionComponent {proposition}/>
+      </div>
+      <Hideable>
+        <div>
+          <ArgumentsList argumentsList={proposition.conclusionsArguments} showConclusions></ArgumentsList>
+        </div>
+      </Hideable>
     </div>
-  </Hideable>
-  <div class="mainProposition">
-    <PropositionComponent {proposition}/>
-  </div>
-  <Hideable>
-    <div>
-      <ArgumentsList argumentsList={conclusionsArgumentsList} showConclusions></ArgumentsList>
-    </div>
-  </Hideable>
+
+    {#if proposition.partOfConnections}
+      <div class="connectedPropositions">
+        {#each proposition.partOfConnections as connection (connection.id)}
+          <div></div>
+          <div>
+              <PropositionComponent proposition={connection}/>
+          </div>
+          <div>
+            <ArgumentsList argumentsList={connection.conclusionsArguments} showConclusions></ArgumentsList>
+          </div>
+        {/each}
+      </div>
+    {/if}
+  {/if}
 </main>
 
 <style lang="scss">
-  main {
+  .container {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
   
-  main > div {
+  .container > div {
     flex-grow: 1;
     
     display: flex;
@@ -64,7 +78,7 @@
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-    main {
+    .container {
       flex-direction: row;
     }
   }

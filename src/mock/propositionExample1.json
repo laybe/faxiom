@@ -52,7 +52,17 @@
       }
     }
   ],
-  "conclusionsArguments": [],
+  "conclusionsArguments": [
+    {
+      "id": "459",
+      "type": "abjunction",
+      "conclusion": {
+        "id": "133",
+        "type": "single",
+        "text": "elementum. Morbi tempor ante sed ligula iaculis dapibus."
+      }
+    }
+  ],
   "partOfConnections": [
     {
       "id": "128",
@@ -62,7 +72,7 @@
         {
           "id": "123",
           "type": "single",
-          "text": "abc"
+          "text": "La chimie, qui nous fournit aujourd’hui bon nombre de produits « incorporant » du pétrole ou du gaz (par exemple le plastique, donc, mais encore les engrais ou…les ordinateurs), ne peut pas être remplacé par une énergie renouvelable."
         },
         {
           "id": "129",
@@ -75,7 +85,7 @@
           "id": "458",
           "type": "implication",
           "conclusion": {
-            "id": "130",
+            "id": "132",
             "type": "single",
             "text": "pqr"
           }
