@@ -18,7 +18,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     padding: 10px 0 10px 0;
   }
@@ -30,7 +30,7 @@
   @media only screen and (min-width: 600px) {
     div {
       flex-direction: column;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 </style>

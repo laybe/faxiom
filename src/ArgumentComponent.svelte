@@ -9,7 +9,7 @@
   let { type, premise, conclusion }: Argument = argument;
 </script>
 
-<div class='container'>
+<div class='container' class:conclusions={showConclusions}>
   {#if showConclusions}
     <div class='item arrow'><ArgumentArrow {type}/></div>
     <div class='item proposition'><PropositionComponent proposition={conclusion}></PropositionComponent></div>
@@ -25,22 +25,36 @@
 
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 50% 50%;
-    align-items: center;
+    grid-template-rows: auto 120px;
+    // align-items: center;
+
+    &.conclusions {
+      grid-template-rows: 120px auto;
+    }
   }
 
-  .proposition {
-    justify-self: center;
+  .item {
+    justify-self: stretch;
+    align-self: stretch;
   }
+  // .proposition {
+  //   // justify-self: center;
+  // }
+  // .arrow {
+
+  // }
 
   @media only screen and (min-width: 600px) {
     .container {
-      grid-template-columns: 50% 50%;
+      grid-template-columns: auto 120px;
       grid-template-rows: auto;
+      &.conclusions {
+        grid-template-columns: 120px auto;
+      }
     }
-    .arrow {
-      padding: 0;
-      padding-left: 20%;
-    }
+    // .arrow {
+    //   // padding: 0;
+    //   // padding-left: 20%;
+    // }
   }
 </style>
