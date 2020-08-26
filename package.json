@@ -5,15 +5,21 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
-    "validate": "svelte-check"
+    "validate": "svelte-check",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-typescript": "^4.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/svelte": "^3.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "@types/jest": "^26.0.10",
     "autoprefixer": "^9.8.6",
+    "jest": "^26.4.2",
     "node-sass": "^4.14.1",
     "rollup": "^2.3.4",
     "rollup-plugin-livereload": "^1.0.0",
@@ -21,7 +27,9 @@
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0",
     "svelte-check": "^1.0.0",
+    "svelte-jester": "^1.1.2",
     "svelte-preprocess": "^4.1.1",
+    "ts-jest": "^26.3.0",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"
   },
